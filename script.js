@@ -37,9 +37,13 @@ const userSignIn = async() => {
 
 onAuthStateChanged(auth, (user) =>{
   if(user) {
+
     window.location.href='main.html'
   } else{
   }
 })
 
 signInButton.addEventListener('click',userSignIn)
+
+
+
