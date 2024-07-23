@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
     <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    
-    <input id="NombreAccion" type="text" placeholder="Ticker">
-    <p></p>
-    <input id="PrecioAccion" type="text" placeholder="Precio">
-    <p></p>
-    <input id="CantidadAcciones" type="text" placeholder="cantidad">
-    <p></p>
+    <div class="ContenedorPrincipal">
+        <div class="ContenedorInputs">
+            <div class="ContenedorAccion">
+                <h3>Nombre de la accion</h3>
+                <input id="NombreAccion" type="text" placeholder="Ticker">
+            </div>
+            <div class="ContenedorPrecioAccion">
+                <h3>Precio de cada accion</h3>
+                <input id="PrecioAccion" type="text" placeholder="Precio">
+            </div>
+            <div class="ContenedorCantidadAccion">
+                <h3>Cantidad de la accion</h3>
+                <input id="CantidadAcciones" type="text" placeholder="cantidad">
+            </div>
+            <p id="MensajeErrorAccion"></p>
+            <button id="Agregar">Agregar</button>
+        </div>
+        <div class="CarteraUsuario">
+            <div class="ContenedorCartera">
+                <h1>Tu cartera</h1>
+                <ul id="ListaAccionesUsuario"></ul>
+            </div>
+        </div>
+
+        <div class="Menu">
+            <h2>item 1</h2>
+            <h2>item 2</h2>
+            <h2>item 3</h2>
+        </div>
 
 
-    <p id="MensajeErrorAccion"></p>
+    </div>
 
-    <button id="Agregar">Agregar</button>
 
-    <h1 id="listaPrueba"></h1>
 
-    <ul id="ListaAccionesUsuario">
-    </ul>
-    
+
+
+
 </body>
+
 </html>

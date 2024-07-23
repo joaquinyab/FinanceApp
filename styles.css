@@ -1,0 +1,126 @@
+body{
+    margin: 0;
+    background: #043353;
+}
+main{
+    display: flex;
+    align-items: center;
+    
+    height: 100vh;
+
+}
+
+
+.IniciarSesion{
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10%;
+    box-shadow:5px 5px rgb(75, 71, 71);
+
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    margin:0 auto;
+    background: #740ea0;
+}
+
+.IniciarSesion h1{
+    color: #0E0B16;
+}
+
+
+.ContenedorInputs{
+    margin-top: 5%;
+    margin-bottom: 7%;
+    
+    background: #D3DDE6;
+    height: auto;
+    border-radius: 3%;
+    width: 30vw;
+    border-color: black;
+    border-style:solid;
+    margin-left: 10%;
+
+}
+
+.ContenedorInputs div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.ContenedorInputs div input{
+
+    height: 7vh;
+    width: 20vw;
+
+}
+
+#Agregar{
+    margin-left: 16%;
+    margin-bottom: 10%;
+    padding: 10px 20px;
+    background-color: #043353;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#Agregar:hover {
+    background-color: #063f65;
+  }
+
+#Agregar:active {
+    background-color: #063251;
+  }
+
+
+
+li{
+    color: #D3DDE6;
+    list-style: none;
+    border-bottom-style:solid;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.ContenedorPrincipal{
+    display: flex;
+    justify-content: space-between;
+}
+
+#MensajeErrorAccion{
+    margin-left: 16%;
+    color: brown;
+
+}
+
+.CarteraUsuario{
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 25%;
+}
+
+.ContenedorCartera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ContenedorCartera h1{
+    color: #FAF8F0;
+}
+
+.Menu{
+    
+    background: #18A4E0;
+    width: 15vw;
+    height: 100vh;
+    display: none;
+}
