@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     let MensajeErrorAccion = document.getElementById('MensajeErrorAccion');
     let ListaUsuario = document.getElementById('ListaAccionesUsuario');
 
+    let PrecioDolar = document.getElementById('Dolar')
+
+
+
+    //https://dolarapi.com/docs/argentina/
+    fetch("https://dolarapi.com/v1/dolares/blue")
+    .then(response => response.json())
+    .then(data => PrecioDolar.innerHTML=data.venta);
+
+
+
+
     //LA LISTA COMIENZA VACIA AL PRINCIPIO
     let ListaJava = []
     
@@ -16,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if(localStorage.getItem('CarteraUsuario')){
         ListaJava = JSON.parse(localStorage.getItem('CarteraUsuario'));
     }
-
 
     //MUESTRA LA LISTA, si no hay nada guardado estaria vacia
     MostrarLista(ListaUsuario,ListaJava)
@@ -41,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             else{
                 if(ListaJava.some(obj => obj['Accion'].toUpperCase() === Accion.toUpperCase())){
-                    MensajeErrorAccion.innerHTML ='esta accion ya esta en la lista'     
+                    MensajeErrorAccion.innerHTML ='Esta accion ya esta en la lista'     
                 }
                 else{
                     AgregarAccion(Accion,Precio,Cantidad)
