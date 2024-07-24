@@ -47,12 +47,25 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } 
         else{
+            MensajeErrorAccion.innerHTML=''
             if(ListaJava.length==0){
                     AgregarAccion(Accion,Precio,Cantidad)
             }
             else{
-                if(ListaJava.some(obj => obj['Accion'].toUpperCase() === Accion.toUpperCase())){
-                    MensajeErrorAccion.innerHTML ='Esta accion ya esta en la lista'     
+                if(AccionSeEncuentra(ListaJava,Accion)){
+
+                    if(Cantidad==0){
+                        EliminarAccion(ListaJava,Accion)
+                        AccionIntroducida.value = '';
+                        PrecioAccionIntroducida.value = '';
+                        CantidadIntroducida.value='';
+                    }
+                    else{
+                        CambiarCantidad(ListaJava,Accion,Cantidad)
+                        AccionIntroducida.value = '';
+                        PrecioAccionIntroducida.value = '';
+                        CantidadIntroducida.value='';
+                    }
                 }
                 else{
                     AgregarAccion(Accion,Precio,Cantidad)
@@ -60,6 +73,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
     });
+
+
+    function EliminarAccion(ListaJava,AccionIntroducida){
+        for(let i=0;i<ListaJava.length;i++){
+            if(ListaJava[i].Accion.toUpperCase()==AccionIntroducida.toUpperCase()){
+                ListaJava.splice(i, 1);
+                MostrarLista(ListaUsuario, ListaJava)
+            }
+        }
+    }
+
+    function AccionSeEncuentra(ListaJava,AccionIntroducida){
+        for(let i=0;i<ListaJava.length;i++){
+            if(ListaJava[i].Accion.toUpperCase()==AccionIntroducida.toUpperCase()){
+                return true
+            }
+        }
+        return false
+    }
+
+    function CambiarCantidad(ListaJava,AccionIntroducida,CantidadIntroducida){
+        for(let i=0;i<ListaJava.length;i++){
+            if(ListaJava[i].Accion.toUpperCase()==AccionIntroducida.toUpperCase()){
+                ListaJava[i].Cantidad=parseFloat(CantidadIntroducida)
+            }
+            MostrarLista(ListaUsuario, ListaJava)
+        }
+        
+    }
 
     function AgregarAccion(Accion,Precio,Cantidad){
         MensajeErrorAccion.innerHTML = '';
@@ -69,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         MostrarLista(ListaUsuario,ListaJava)
         AccionIntroducida.value = '';
         PrecioAccionIntroducida.value = '';
+        CantidadIntroducida.value='';
     }
 
     // Esta funcion agrega cada nuevo elemento que pone el usuario al apretar el boton agregar (ya habiendo verificado los datos)
@@ -77,12 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < lista.length; i++) {
             let ItemNuevo = document.createElement('li');
             
-
             ItemNuevo.innerHTML = lista[i].Accion + ' --- $' + lista[i].Precio +'  | '+'Cantidad:'+lista[i].Cantidad; 
          
             elementoLista.appendChild(ItemNuevo);
-           
-
             localStorage.setItem('CarteraUsuario',JSON.stringify(ListaJava))
         }
     }

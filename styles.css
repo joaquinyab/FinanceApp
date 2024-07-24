@@ -42,15 +42,13 @@ main{
 
 .ContenedorInputs{
     margin-top: 5%;
-    margin-bottom: 7%;
-    
     background: #D3DDE6;
-    height: auto;
+    height: 75vh;
     border-radius: 3%;
-    width: 30vw;
+    width: 35vw;
     border-color: black;
     border-style:solid;
-    margin-left: 10%;
+    margin-left: 30%;
 
 }
 
@@ -117,11 +115,12 @@ li::selection{
 }
 
 .CarteraUsuario{
-    margin-top: 7%;
+    margin-top:3%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 25%;
+    margin-right: 15%;
+    width: 40vw;
 }
 
 .ContenedorCartera{
@@ -139,5 +138,6 @@ li::selection{
     background: #18A4E0;
     width: 15vw;
     height: 100vh;
-    display: none;
+    position: fixed;
+    
 }
