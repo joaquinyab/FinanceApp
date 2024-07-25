@@ -54,6 +54,21 @@ document.addEventListener('DOMContentLoaded', function() {
             else{
                 if(AccionSeEncuentra(ListaJava,Accion)){
 
+                    if(Precio==0){
+                        EliminarAccion(ListaJava,Accion)
+                        AccionIntroducida.value = '';
+                        PrecioAccionIntroducida.value = '';
+                        CantidadIntroducida.value='';
+                    }
+
+                    else{
+                        cambiarPrecio(ListaJava,Accion,Precio)
+                        AccionIntroducida.value = '';
+                        PrecioAccionIntroducida.value = '';
+                        CantidadIntroducida.value='';
+
+                    }
+
                     if(Cantidad==0){
                         EliminarAccion(ListaJava,Accion)
                         AccionIntroducida.value = '';
@@ -91,6 +106,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         return false
+    }
+
+
+    function cambiarPrecio(ListaJava,AccionIntroducida,PrecioAccionIntroducida){
+        for(let i=0;i<ListaJava.length;i++){
+            if(ListaJava[i].Accion.toUpperCase()==AccionIntroducida.toUpperCase()){
+                ListaJava[i].Precio=parseFloat(PrecioAccionIntroducida)
+            }
+            MostrarLista(ListaUsuario, ListaJava)
+        }
+
     }
 
     function CambiarCantidad(ListaJava,AccionIntroducida,CantidadIntroducida){
