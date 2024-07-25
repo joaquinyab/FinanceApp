@@ -55,10 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(AccionSeEncuentra(ListaJava,Accion)){
 
                     if(Precio==0){
-                        EliminarAccion(ListaJava,Accion)
-                        AccionIntroducida.value = '';
-                        PrecioAccionIntroducida.value = '';
-                        CantidadIntroducida.value='';
+                        if(CartelConfirmacion(Accion) == true){
+                            EliminarAccion(ListaJava,Accion)
+                            AccionIntroducida.value = '';
+                            PrecioAccionIntroducida.value = '';
+                            CantidadIntroducida.value='';
+                        }
+                        else{
+                            AccionIntroducida.value = '';
+                            PrecioAccionIntroducida.value = '';
+                            CantidadIntroducida.value='';    
+                        }
                     }
 
                     else{
@@ -70,10 +77,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
 
                     if(Cantidad==0){
-                        EliminarAccion(ListaJava,Accion)
-                        AccionIntroducida.value = '';
-                        PrecioAccionIntroducida.value = '';
-                        CantidadIntroducida.value='';
+                        if(CartelConfirmacion(Accion) == true){
+                            EliminarAccion(ListaJava,Accion)
+                            AccionIntroducida.value = '';
+                            PrecioAccionIntroducida.value = '';
+                            CantidadIntroducida.value='';
+                        }
+                        else{
+                            AccionIntroducida.value = '';
+                            PrecioAccionIntroducida.value = '';
+                            CantidadIntroducida.value='';
+                        }
                     }
                     else{
                         CambiarCantidad(ListaJava,Accion,Cantidad)
@@ -89,6 +103,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     });
 
+
+
+    function CartelConfirmacion(Accion){
+        let CartelAlerta = prompt('Estas por eliminar'+ Accion +' de tu cartera, escribe SI para proseguir')
+
+        if(CartelAlerta=='SI'||CartelAlerta=='Si'||CartelAlerta=='si'||CartelAlerta=='sI'){
+            return true
+        }
+        else{
+            return false
+        }
+    }
 
     function EliminarAccion(ListaJava,AccionIntroducida){
         for(let i=0;i<ListaJava.length;i++){
@@ -166,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         else if(Tipo === 'Precio'){            //si quiero verificar el input del precio introducido
-            if(input.length==0){
+            if(input.length==0 || input=='0'){
                 return false
             }
             for (let i = 0; i < input.length; i++) {
@@ -176,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     else if(Tipo == 'Cantidad'){
-        if(input.length==0){
+        if(input.length==0|| input=='0'){
             return false
         }
         for(let i=0;i<input.length;i++){
