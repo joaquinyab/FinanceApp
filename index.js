@@ -14,11 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let TotalUSDCartera = document.getElementById('TotalUSDCartera')
 
-
-    
-
-
-
     //LA LISTA COMIENZA VACIA AL PRINCIPIO
     let ListaJava = []
     
@@ -31,11 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
     MostrarLista(ListaUsuario,ListaJava)
 
     ApiDolar()
-
-
-
-
-
 
 
     //una vez que el usuario apreta el boton se valida analiza que la info en Accion, Precio y Cantidad sean correctas,si lo son, se agrega a la cartera de acciones
@@ -131,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const resultado = totalCartera / ventaDolar;
                             
                             // Mostrar el resultado en el elemento HTML
-                        TotalUSDCartera.innerHTML = resultado.toFixed(1)+' usd'; // Redondear a 2 decimales
+                        TotalUSDCartera.innerHTML = resultado.toFixed(2)+' usd'; // Redondear a 2 decimales
                     } else {
                         TotalUSDCartera.innerHTML = 'Valores no válidos';
                         }
@@ -218,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < lista.length; i++) {
             let ItemNuevo = document.createElement('li');
 
-            ItemNuevo.innerHTML = lista[i].Accion + ' --- $' + lista[i].Precio +'  | '+'Cantidad:'+lista[i].Cantidad+' __ ' +' TOTAL: $' +(lista[i].Precio)*(lista[i].Cantidad); 
+            ItemNuevo.innerHTML = lista[i].Accion + ' --- $' + lista[i].Precio +'  | '+'Cantidad:'+lista[i].Cantidad+' ___ ' +' TOTAL: $' +(lista[i].Precio)*(lista[i].Cantidad); 
          
             elementoLista.appendChild(ItemNuevo);
             localStorage.setItem('CarteraUsuario',JSON.stringify(ListaJava))
