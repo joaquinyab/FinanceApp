@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         else if(Tipo === 'Precio'){            //si quiero verificar el input del precio introducido
-            if(input.length==0 || input=='0'){
+            if(input.length==0 ){
                 return false
             }
             for (let i = 0; i < input.length; i++) {
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     else if(Tipo == 'Cantidad'){
-        if(input.length==0|| input=='0'){
+        if(input.length==0){
             return false
         }
         for(let i=0;i<input.length;i++){
