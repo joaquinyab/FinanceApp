@@ -123,9 +123,6 @@ li::selection{
 
 
 .ContenedorPrincipal{
-
-    
-
     display: flex;
     justify-content: space-between;
     height: auto;
@@ -172,9 +169,42 @@ li::selection{
 }
 
 .Contenedor1{
+    margin-left: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     width: 25vw;
+}
+
+.MainSecundario{
+    display: grid;
+  
+    grid-template-columns: 1fr 1fr;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.TotalCartera{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.TotalCartera p{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.ContDolar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.ContDolar p{
+    font-size: larger;
+    font-weight: bolder;
 }

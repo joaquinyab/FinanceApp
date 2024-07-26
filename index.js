@@ -12,16 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let PrecioDolar = document.getElementById('Dolar')
 
-
+    let TotalUSDCartera = document.getElementById('TotalUSDCartera')
 
 
     
-
-    //https://dolarapi.com/docs/argentina/
-    fetch("https://dolarapi.com/v1/dolares/blue")
-    .then(response => response.json())
-    .then(data => PrecioDolar.innerHTML=data.venta);
-
 
 
 
@@ -36,7 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
     //MUESTRA LA LISTA, si no hay nada guardado estaria vacia
     MostrarLista(ListaUsuario,ListaJava)
 
-    TotalCartera.innerHTML= Calculartotal(ListaJava)
+    ApiDolar()
+
+
+
+
+
 
 
     //una vez que el usuario apreta el boton se valida analiza que la info en Accion, Precio y Cantidad sean correctas,si lo son, se agrega a la cartera de acciones
@@ -108,11 +107,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         TotalCartera.innerHTML= Calculartotal(ListaJava)
-            
+        ApiDolar()
 
 
     });
 
+
+
+    function ApiDolar(){
+        // Suponiendo que Calculartotal es una función que devuelve el total de la cartera
+            const totalCartera = Calculartotal(ListaJava);
+            TotalCartera.innerHTML = totalCartera;
+        
+                // Fetch al API del dólar blue
+            fetch("https://dolarapi.com/v1/dolares/blue")
+                .then(response => response.json())
+                .then(data => {
+                        // Obtener el valor de venta del dólar blue y convertirlo a número
+                    const ventaDolar = (parseFloat(data.venta)).toFixed(3);
+                        // Verificar que totalCartera y ventaDolar sean números válidos
+                    if (!isNaN(totalCartera) && !isNaN(ventaDolar) && ventaDolar !== 0) {
+                            // Calcular la división
+                        const resultado = totalCartera / ventaDolar;
+                            
+                            // Mostrar el resultado en el elemento HTML
+                        TotalUSDCartera.innerHTML = resultado.toFixed(1)+' usd'; // Redondear a 2 decimales
+                    } else {
+                        TotalUSDCartera.innerHTML = 'Valores no válidos';
+                        }
+                    })
+                    .catch(error => {
+                        TotalUSDCartera.innerHTML = 'Error al obtener el valor del dólar';
+                });
+            }
 
     function Calculartotal(ListaJava){
         let Total = 0
@@ -124,9 +151,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function CartelConfirmacion(Accion){
-        let CartelAlerta = prompt('Estas por eliminar'+ Accion +' de tu cartera, escribe SI para proseguir')
 
-        if(CartelAlerta=='SI'||CartelAlerta=='Si'||CartelAlerta=='si'||CartelAlerta=='sI'){
+        let CartelAlerta = prompt('Estas por eliminar '+ Accion +' de tu cartera, escribe '+Accion+' para proseguir')
+
+        if(CartelAlerta==Accion){
             return true
         }
         else{
