@@ -8,10 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let CantidadIntroducida = document.getElementById('CantidadAcciones')
     let MensajeErrorAccion = document.getElementById('MensajeErrorAccion');
     let ListaUsuario = document.getElementById('ListaAccionesUsuario');
+    let TotalCartera = document.getElementById('TotalCartera')
 
     let PrecioDolar = document.getElementById('Dolar')
 
 
+
+
+    
 
     //https://dolarapi.com/docs/argentina/
     fetch("https://dolarapi.com/v1/dolares/blue")
@@ -31,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //MUESTRA LA LISTA, si no hay nada guardado estaria vacia
     MostrarLista(ListaUsuario,ListaJava)
+
+    TotalCartera.innerHTML= Calculartotal(ListaJava)
 
 
     //una vez que el usuario apreta el boton se valida analiza que la info en Accion, Precio y Cantidad sean correctas,si lo son, se agrega a la cartera de acciones
@@ -101,8 +107,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 }
             }
+        TotalCartera.innerHTML= Calculartotal(ListaJava)
+            
+
+
     });
 
+
+    function Calculartotal(ListaJava){
+        let Total = 0
+        for (let i=0;i<ListaJava.length;i++){
+            Total+=((ListaJava[i].Precio)*(ListaJava[i].Cantidad))
+        }
+        return Total
+    }
 
 
     function CartelConfirmacion(Accion){
@@ -171,11 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
         elementoLista.innerHTML = '';
         for (let i = 0; i < lista.length; i++) {
             let ItemNuevo = document.createElement('li');
-            
-            ItemNuevo.innerHTML = lista[i].Accion + ' --- $' + lista[i].Precio +'  | '+'Cantidad:'+lista[i].Cantidad; 
+
+            ItemNuevo.innerHTML = lista[i].Accion + ' --- $' + lista[i].Precio +'  | '+'Cantidad:'+lista[i].Cantidad+' __ ' +' TOTAL: $' +(lista[i].Precio)*(lista[i].Cantidad); 
          
             elementoLista.appendChild(ItemNuevo);
             localStorage.setItem('CarteraUsuario',JSON.stringify(ListaJava))
+
+            
         }
     }
 
