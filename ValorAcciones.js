@@ -33,15 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
               let timeSeries = data['Time Series (1min)'];
               let lastKey = Object.keys(timeSeries)[0];
               let lastDataPoint = timeSeries[lastKey];
-              console.log('Último valor de open:', lastDataPoint['1. open']);
-              PrecioAccion.innerText = `Precio de Apertura: $${lastDataPoint['1. open']}`;
+              PrecioAccion.innerText = `Precio: $${lastDataPoint['1. open']}usd`;
               return { symbol };
           } else {
-              console.log('No se encontraron datos.');
               PrecioAccion.innerText = 'No se encontraron datos';
           }
       } catch (error) {
-          console.error('Error fetching stock data:', error);
           PrecioAccion.innerText = 'Error al obtener datos';
       }
   }
