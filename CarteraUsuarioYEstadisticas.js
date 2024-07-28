@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+import { inject } from "@vercel/analytics"
 
+document.addEventListener('DOMContentLoaded', function() {
+    
     // AGARRO TODO LO QUE ME SIRVA DEL DOM
     let Boton = document.getElementById('Agregar');
     let AccionIntroducida = document.getElementById('NombreAccion');
