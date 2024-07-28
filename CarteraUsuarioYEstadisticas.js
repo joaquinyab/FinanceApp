@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
 
     // AGARRO TODO LO QUE ME SIRVA DEL DOM
