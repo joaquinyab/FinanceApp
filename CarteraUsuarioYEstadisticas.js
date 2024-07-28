@@ -1,5 +1,3 @@
-import { inject } from "@vercel/analytics"
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // AGARRO TODO LO QUE ME SIRVA DEL DOM
