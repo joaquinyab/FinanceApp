@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   async function getStockData(symbol) {
-      let apiKey = 'ENR7DHK11BMNEW8O';
+      let apiKey = 'ETR7FHK13BMNRW8O';//ENR7DHK11BMNEW8O
       let url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=1min&apikey=${apiKey}`;
 
       try {
