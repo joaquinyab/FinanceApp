@@ -213,6 +213,7 @@ li::selection{
 
 .MainSecundario{
     display: flex;
+    
     flex-direction: column;
     width: 60vw;
     margin: 0 auto;
@@ -220,6 +221,7 @@ li::selection{
 
 .MainSecundario .ContenedorEstadistica1{
     display: grid;
+    
     grid-template-columns: 1fr 1fr;
 }
 
@@ -228,6 +230,7 @@ li::selection{
     grid-template-columns: 1fr 1fr;
  
     margin-top: 3%;
+    margin-left: 3%;
     width: 75vw;
 }
 
@@ -282,4 +285,11 @@ p:hover{
     font-size: 22px;
     transition: 1s;
 
+}
+
+h6{
+    margin-bottom: 10%;
+    font-style: italic;
+    color: white;
+    padding-top: 3px;
 }
