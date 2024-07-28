@@ -212,11 +212,29 @@ li::selection{
 }
 
 .MainSecundario{
-    display: grid;
-  
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     width: 60vw;
     margin: 0 auto;
+}
+
+.MainSecundario .ContenedorEstadistica1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.MainSecundario .ContenedorEstadistica2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+    margin-top: 10%;
+    width: 75vw;
+}
+
+#ContenedorPieChart{
+
+    width: 37vw;
+    height: 50vh;
 }
 
 .TotalCartera{

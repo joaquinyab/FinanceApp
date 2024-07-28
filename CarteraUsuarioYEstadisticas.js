@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let MensajeErrorAccion = document.getElementById('MensajeErrorAccion');
     let ListaUsuario = document.getElementById('ListaAccionesUsuario');
     let TotalCartera = document.getElementById('TotalCartera')
+    
 
     let PrecioDolar = document.getElementById('Dolar')
 
@@ -25,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     MostrarLista(ListaUsuario,ListaJava)
 
     ApiDolar()
-
+    DatosLista(ListaJava)
+    GraficoTorta(ListaJava)
+    GraficoBarra(ListaJava)
 
     //una vez que el usuario apreta el boton se valida analiza que la info en Accion, Precio y Cantidad sean correctas,si lo son, se agrega a la cartera de acciones
     Boton.addEventListener('click', function() {
@@ -97,10 +100,81 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         TotalCartera.innerHTML= Calculartotal(ListaJava)
         ApiDolar()
+        GraficoTorta(ListaJava)
+        GraficoBarra(ListaJava)
 
 
     });
 
+
+    function GraficoTorta(ListaJava){
+        let GraficoTorta = document.getElementById('Grafico1')
+        let [Tickers,CantidadCadaUno,Precios]=DatosLista(ListaJava)
+        new Chart(GraficoTorta, {
+            type: 'pie',
+            data: {
+              labels: Tickers,
+              datasets: [{
+                //label: 'Cantidad',
+                data: CantidadCadaUno,
+                borderWidth: 3
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+    }
+
+
+    function GraficoBarra(ListaJava){
+        let GraficoBarra = document.getElementById('Grafico2')
+        let [Tickers,CantidadCadaUno,Precios]=DatosLista(ListaJava)
+        new Chart(GraficoBarra, {
+            type: 'bar',
+            data: {
+              labels: Tickers,
+              datasets: [{
+                label: '$',
+                data: Precios,
+                borderWidth: 3,
+                backgroundColor:[
+                    'rgba(255, 99, 132)'
+                ],
+                borderColor:[
+                    'rgba(255, 99, 132)',
+                ]
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+    }
+
+    function DatosLista(ListaJava){
+        Tickers =[]
+        CantidadCadaUno=[]
+        Precios =[]
+
+        for(let i=0;i<ListaJava.length;i++){
+            if(!Tickers.includes(ListaJava[i].Accion)){
+                Tickers.push(ListaJava[i].Accion)
+                CantidadCadaUno.push(parseFloat(ListaJava[i].Cantidad))
+                Precios.push(parseFloat(ListaJava[i].Precio))
+            }
+        }
+        return [Tickers,CantidadCadaUno,Precios]
+        
+    }
 
 
     function ApiDolar(){
