@@ -100,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         TotalCartera.innerHTML= Calculartotal(ListaJava)
         ApiDolar()
-        GraficoTorta(ListaJava)
-        GraficoBarra(ListaJava)
+
 
 
     });
@@ -117,17 +116,49 @@ document.addEventListener('DOMContentLoaded', function() {
               datasets: [{
                 //label: 'Cantidad',
                 data: CantidadCadaUno,
-                borderWidth: 3
+                borderWidth: 3,
+                backgroundColor: [
+                    'rgba(40, 2, 101, 0.2)',  // 20% opacity
+                    'rgba(40, 2, 101, 0.4)',  // 40% opacity
+                    'rgba(40, 2, 101, 0.6)',  // 60% opacity
+                    'rgba(40, 2, 101, 0.8)',  // 80% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 0.5)'   // 50% opacity
+                  ],
+                  borderColor: [
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)'     // 100% opacity
+                  ],
               }]
+              
             },
             options: {
-              scales: {
-                y: {
-                  beginAtZero: true
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      color: '#ffffff'  // Color de los números en el eje Y
+                    }
+                  },
+                  x: {
+                    ticks: {
+                      color: '#ffffff'  // Color de los números en el eje X
+                    }
+                  }
+                },
+                plugins: {
+                  legend: {
+                    labels: {
+                      color: '#ffffff'  // Color de las etiquetas de la leyenda
+                    }
+                  }
                 }
               }
-            }
-          });
+            });
     }
 
 
@@ -142,22 +173,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 label: '$',
                 data: Precios,
                 borderWidth: 3,
-                backgroundColor:[
-                    'rgba(255, 99, 132)'
-                ],
-                borderColor:[
-                    'rgba(255, 99, 132)',
-                ]
+                backgroundColor: [
+                    'rgba(40, 2, 101, 0.2)',  // 20% opacity
+                    'rgba(40, 2, 101, 0.4)',  // 40% opacity
+                    'rgba(40, 2, 101, 0.6)',  // 60% opacity
+                    'rgba(40, 2, 101, 0.8)',  // 80% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 0.5)'   // 50% opacity
+                  ],
+                  borderColor: [
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)',    // 100% opacity
+                    'rgba(40, 2, 101, 1)'     // 100% opacity
+                  ],
+
               }]
             },
             options: {
-              scales: {
-                y: {
-                  beginAtZero: true
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      color: '#ffff'  // Color de los números en el eje Y
+                    }
+                  },
+                  x: {
+                    ticks: {
+                      color: '#ffff'  // Color de los números en el eje X
+                    }
+                  }
+                },
+                plugins: {
+                  legend: {
+                    labels: {
+                      color: '#ffff'  // Color de las etiquetas de la leyenda
+                    }
+                  }
                 }
               }
-            }
-          });
+            });
     }
 
     function DatosLista(ListaJava){

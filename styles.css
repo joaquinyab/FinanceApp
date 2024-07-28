@@ -123,7 +123,7 @@ main{
     margin-left: 16%;
     margin-bottom: 10%;
     padding: 10px 20px;
-    background-color: #043353;
+    background-color: #043353;/*#043353*/
     color: white;
     border: none;
     border-radius: 5px;
@@ -227,7 +227,7 @@ li::selection{
     display: grid;
     grid-template-columns: 1fr 1fr;
  
-    margin-top: 10%;
+    margin-top: 3%;
     width: 75vw;
 }
 
@@ -259,4 +259,21 @@ li::selection{
 .ContDolar p{
     font-size: larger;
     font-weight: bolder;
+}
+
+h2{
+    font-weight: bolder;
+    color: rgb(175, 175, 175);
+}
+
+p{
+    font-weight: bold;
+    color: white;
+
+}
+p:hover{
+    font-weight: bolder;
+    font-size: 22px;
+    transition: 1s;
+
 }
