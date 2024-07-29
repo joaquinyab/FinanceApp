@@ -1,0 +1,206 @@
+TICKER,EMPRESA,RATIO,INFO,INDUSTRIA
+AAL,AMERICAN AIRLINES GROUP INC,2:1,Irregular,Transporte
+AAPL,APPLE INC,10:1,Trimestral,Tecnología
+ABBV,ABBVIE INC,10:1,Trimestral,Salud
+ABEV,AMBEV SA-ADR,1:3,Semestral,Bebidas
+ABT,ABBOTT LABORATORIES,4:1,Trimestral,Salud
+ACHHY,ALUMINUM CORP OF CHINA-ADR,1:1,Irregular,Materiales
+ADBE,ADOBE INC,22:1,Irregular,Tecnología
+ADGO,ADECOAGRO SA,1:2,Ninguna,Agricultura
+ADI,ANALOG DEVICES INC,15:1,Trimestral,Tecnología
+ADP,AUTOMATIC DATA PROCESSING,6:1,Trimestral,Servicios
+ADS,ADIDAS AG,22:1,Anual,Consumo
+AEG,AEGON N.V.-NY REG SHR,1:1,Semestral,Finanzas
+AEM,AGNICO EAGLE MINES LTD,3:1,Trimestral,Materiales
+AIG,AMERICAN INTERNATIONAL GROUP,5:1,Trimestral,Finanzas
+AKO.B,EMBOTELLADORA ANDINA S.A.,1:1,No informado,Bebidas
+AMAT,APPLIED MATERIALS INC,5:1,Trimestral,Tecnología
+AMD,ADVANCED MICRO DEVICES,10:1,Ninguna,Tecnología
+AMGN,AMGEN INC,10:1,Trimestral,Salud
+AMX,AMERICA MOVIL-SPN ADR CL L,1:1,Semestral,Telecomunicaciones
+AMZN,AMAZON.COM INC,144:1,Ninguna,Consumo
+ANF,ABERCROMBIE & FITCH CO-CL A,1:1,Irregular,Consumo
+ARCO,ARCOS DORADOS HOLDINGS INC-A,1:2,No informado,Consumo
+ASR,GRUPO AEROPORTUARIO SUR-ADR,20:1,Anual,Transporte
+ATAD,TATNEFT PAO-SPONSORED ADR,4:1,Irregular,Energía
+AUY,YAMANA GOLD INC,1:1,Trimestral,Materiales
+AVGO,BROADCOM INC,39:1,Trimestral,Tecnología
+AVY,AVERY DENNISON CORP,18:1,Trimestral,Materiales
+AXP,AMERICAN EXPRESS CO,5:1,Trimestral,Finanzas
+AZN,ASTRAZENECA PLC-SPONS ADR,2:1,Semestral,Salud
+BA,BOEING CO/THE,6:1,Irregular,Transporte
+BABA,ALIBABA GROUP HOLDING-SP ADR,9:1,Ninguna,Tecnología
+BAC,BANK OF AMERICA CORP,2:1,Trimestral,Finanzas
+BAS,BASF SE,2:1,Anual,Materiales
+BAYN,BAYER AG-REG,3:1,Anual,Materiales
+BB,BLACKBERRY LTD,3:1,Ninguna,Tecnología
+BBD,BANCO BRADESCO-ADR,1:1,Irregular,Finanzas
+BBVA,BANCO BILBAO VIZCAYA-SP ADR,1:1,Semestral,Finanzas
+BCS,BARCLAYS PLC-SPONS ADR,1:1,Semestral,Finanzas
+BHP,BHP GROUP LTD-SPON ADR,2:1,Semestral,Materiales
+BIDU,BAIDU INC - SPON ADR,11:1,Ninguna,Tecnología
+BIIB,BIOGEN INC,13:1,Ninguna,Salud
+BIOX,BIOCERES CROP SOLUTIONS CORP,1:2,Ninguna,Agricultura
+BK,BANK OF NEW YORK MELLON CORP,2:1,Trimestral,Finanzas
+BMY,BRISTOL-MYERS SQUIBB CO,3:1,Trimestral,Salud
+BNG,BUNGE LTD,5:1,Trimestral,Agricultura
+BP,BP PLC-SPONS ADR,5:1,Trimestral,Energía
+BRFS,BRF SA-ADR,1:3,Irregular,Consumo
+BRKB,BERKSHIRE HATHAWAY INC-CL B,22:1,Ninguna,Finanzas
+BSBR,BANCO SANTANDER BRASIL-ADS,1:1,Anual,Finanzas
+BSN,DANONE,20:1,Anual,Consumo
+C,CITIGROUP INC,3:1,Trimestral,Finanzas
+CAAP,CORP AMERICA AIRPORTS SA,1:4,Ninguna,Transporte
+CAH,CARDINAL HEALTH INC,3:1,Trimestral,Salud
+CAJ,CANON INC-SPONS ADR,2:1,Semestral,Tecnología
+CAR,AVIS BUDGET GROUP INC,26:1,Irregular,Transporte
+CAT,CATERPILLAR INC,20:1,Trimestral,Materiales
+CBD,CIA BRASILEIRA DE DIS- ADR,1:1,Anual,Consumo
+CDE,COEUR MINING INC,1:1,Irregular,Materiales
+CL,COLGATE-PALMOLIVE CO,3:1,Trimestral,Consumo
+COIN,COINBASE GLOBAL INC,27:1,Ninguna,Finanzas
+COST,COSTCO WHOLESALE CORP,48:1,Trimestral,Consumo
+CRM,SALESFORCE INC,18:1,Ninguna,Tecnología
+CS,CREDIT SUISSE GROUP-SPON ADR,1:1,Semestral,Finanzas
+CSCO,CISCO SYSTEMS INC,5:1,Trimestral,Tecnología
+CVX,CHEVRON CORP,8:1,Trimestral,Energía
+CX,CEMEX SAB-SPONS ADR PART CER,1:1,Semestral,Materiales
+DD,DUPONT DE NEMOURS INC,5:1,Trimestral,Materiales
+DE,DEERE & CO,40:1,Trimestral,Industria
+DEO,DIAGEO PLC-SPONSORED ADR,6:1,Semestral,Bebidas
+DESP,DESPEGAR.COM CORP,1:1,Ninguna,Servicios
+DIS,WALT DISNEY CO/THE,12:1,Semestral,Consumo
+DOCU,DOCUSIGN INC,22:1,Ninguna,Tecnología
+DOW,DOW INC,6:1,Trimestral,Materiales
+DTEA,DEUTSCHE TELEKOM AG-SPON ADR,3:1,Anual,Telecomunicaciones
+E,ENI SPA-SPONSORED ADR,4:1,Semestral,Energía
+EA,ELECTRONIC ARTS INC,14:1,Trimestral,Tecnología
+EBAY,EBAY INC,2:1,Trimestral,Servicios
+EBR,CENTRAIS ELETRICAS BR-SP ADR,1:4,Irregular,Energía
+EFX,EQUIFAX INC,16:1,Trimestral,Servicios
+ELP,CIA PARANAENSE ENER-SP ADR P,1:3,Irregular,Energía
+EOAN,E.ON SE,6:1,Anual,Energía
+ERIC,ERICSSON (LM) TEL-SP ADR,2:1,Semestral,Telecomunicaciones
+ERJ,EMBRAER SA-SPON ADR,1:1,Irregular,Transporte
+ETSY,ETSY INC,16:1,Ninguna,Servicios
+FCX,FREEPORT-MCMORAN INC,3:1,Trimestral,Materiales
+FDX,FEDEX CORP,10:1,Trimestral,Transporte
+FMCC,FREDDIE MAC,1:1,Irregular,Finanzas
+FMX,FOMENTO ECONOMICO MEX-SP ADR,6:1,Semestral,Consumo
+FNMA,FANNIE MAE,1:1,Irregular,Finanzas
+FSLR,FIRST SOLAR INC,3:1,Ninguna,Energía
+GE,GENERAL ELECTRIC CO,8:1,Trimestral,Industria
+GFI,GOLD FIELDS LTD-SPONS ADR,1:1,Semestral,Materiales
+GGB,GERDAU SA -SPON ADR,1:4,Trimestral,Materiales
+GILD,GILEAD SCIENCES INC,10:1,Trimestral,Salud
+GIS,GENERAL MILLS INC,4:1,Trimestral,Consumo
+GLD,SPDR GOLD TRUST,0:1,Irregular,Materiales
+GLW,CORNING INC,9:1,Trimestral,Tecnología
+GM,GENERAL MOTORS CO,6:1,Trimestral,Transporte
+GOOG,ALPHABET INC-CL C,50:1,Trimestral,Tecnología
+GOOGL,ALPHABET INC-CL A,50:1,Trimestral,Tecnología
+GPS,GAP INC/THE,1:1,Irregular,Consumo
+GSK,GLAXOSMITHKLINE PLC-SP ADR,2:1,Semestral,Salud
+GS, GOLDMAN SACHS GROUP INC,2:1,Trimestral,Finanzas
+HBI,HANESBRANDS INC,2:1,Trimestral,Consumo
+HD,HOME DEPOT INC,11:1,Trimestral,Consumo
+HES,HESS CORP,3:1,Trimestral,Energía
+HIG,HARTFORD FINANCIAL SVCS GRP,2:1,Trimestral,Finanzas
+HMC,HONDA MOTOR CO LTD-SP ADR,1:1,Irregular,Automotriz
+HON,HONEYWELL INTERNATIONAL INC,10:1,Trimestral,Industria
+HRL,HORMEL FOODS CORP,2:1,Trimestral,Consumo
+HSBC,HSBC HOLDINGS PLC-SP ADR,1:1,Anual,Finanzas
+HUM,HUMANA INC,3:1,Trimestral,Salud
+IBM,INTERNATIONAL BUSINESS MACHINES,2:1,Trimestral,Tecnología
+IDXX,IDEXX LABORATORIES INC,1:1,Trimestral,Salud
+IFF,INTERNATIONAL FLAVORS & FRAGRANCES INC,3:1,Trimestral,Consumo
+ILMN,ILLUMINA INC,6:1,Trimestral,Salud
+INL,BASF SE,4:1,Anual,Materiales
+INTC,INTEL CORP,8:1,Trimestral,Tecnología
+JNJ,JOHNSON & JOHNSON,3:1,Trimestral,Salud
+JPM,JPMORGAN CHASE & CO,3:1,Trimestral,Finanzas
+K,KEEBLER CO,2:1,Trimestral,Consumo
+KO,COCA-COLA CO,5:1,Trimestral,Bebidas
+KOS,KOENIG & BAUER AG,2:1,Irregular,Materiales
+KSU,KANSAS CITY SOUTHERN,1:1,Ninguna,Transporte
+L,LULULEMON ATHLETICA INC,6:1,Trimestral,Consumo
+LAZ,LAZARD LTD,4:1,Semestral,Finanzas
+LMT,LOCKHEED MARTIN CORP,5:1,Trimestral,Industria
+LOW,LOWE'S COMPANIES INC,20:1,Trimestral,Consumo
+LUV,SOUTHWEST AIRLINES CO,1:1,Trimestral,Transporte
+MA,MASTERCARD INC,11:1,Trimestral,Finanzas
+MCD,MCDONALD'S CORP,10:1,Trimestral,Consumo
+MCK,MCKESSON CORP,4:1,Trimestral,Salud
+MDLZ,MONDELEZ INTERNATIONAL INC,5:1,Trimestral,Consumo
+MDT,MEDTRONIC PLC,4:1,Trimestral,Salud
+MEI,MERRIMACK PHARMACEUTICALS INC,1:1,Ninguna,Salud
+MET,METLIFE INC,2:1,Trimestral,Finanzas
+MGM,MGM RESORTS INTERNATIONAL,1:2,Trimestral,Consumo
+MKO,MARKET OF KIA MOTORS,1:1,Irregular,Automotriz
+MPC,MARATHON PETROLEUM CORP,2:1,Trimestral,Energía
+MRK,MERCK & CO INC,3:1,Trimestral,Salud
+MS,MOODY'S CORP,2:1,Trimestral,Finanzas
+MSFT,MICROSOFT CORP,12:1,Trimestral,Tecnología
+MT,ARCELORMITTAL SA,1:1,Semestral,Materiales
+MUR,MURPHY OIL CORP,2:1,Trimestral,Energía
+MXL,MEXICHEM SAB DE CV,2:1,Ninguna,Materiales
+NDAQ,NASDAQ INC,1:1,Trimestral,Servicios
+NEM,NEWMONT CORP,4:1,Trimestral,Materiales
+NFLX,NETFLIX INC,15:1,Trimestral,Consumo
+NKE,NIKE INC,3:1,Trimestral,Consumo
+NOK,NOKIA CORP-SPONSORED ADR,1:1,Irregular,Telecomunicaciones
+NTRS,NORTHWESTERN MUTUAL,1:1,Ninguna,Finanzas
+NVDA,NVIDIA CORP,18:1,Trimestral,Tecnología
+ORCL,ORACLE CORP,8:1,Trimestral,Tecnología
+OXY,OXYCONTIN INC,1:1,Trimestral,Energía
+PBR,Petroleo Brasileiro SA-PON ADR,1:1,Anual,Energía
+PFE,PFIZER INC,4:1,Trimestral,Salud
+PG,PROCTER & GAMBLE CO,3:1,Trimestral,Consumo
+PGR,PROGRESSIVE CORP,1:1,Trimestral,Finanzas
+PLD,PROLOGIS INC,7:1,Trimestral,Servicios
+PM,PHILIP MORRIS INTERNATIONAL INC,6:1,Semestral,Consumo
+PNC,PNC FINANCIAL SERVICES GROUP,1:1,Trimestral,Finanzas
+PPL,PPL CORPORATION,2:1,Trimestral,Energía
+PRU,PRUDENTIAL FINANCIAL INC,1:1,Trimestral,Finanzas
+PSA,PUBLIC STORAGE,3:1,Trimestral,Servicios
+PSX,PHILLIPS 66,2:1,Trimestral,Energía
+PYPL,PAYPAL HOLDINGS INC,10:1,Trimestral,Finanzas
+QCOM,QUALCOMM INC,9:1,Trimestral,Tecnología
+RE,EVERSPROUT INC,1:1,Ninguna,Servicios
+RF,REGIONS FINANCIAL CORP,1:1,Trimestral,Finanzas
+RDS.A,ROYAL DUTCH SHELL PLC-ADR,4:1,Semestral,Energía
+RHI,ROBERT HALF INTERNATIONAL INC,1:1,Trimestral,Servicios
+ROK,ROCKWELL AUTOMATION INC,5:1,Trimestral,Industria
+ROP,ROPER TECHNOLOGIES INC,5:1,Trimestral,Industria
+ROST,ROSS STORES INC,2:1,Trimestral,Consumo
+RUS,ROSNEFT OIL COMPANY-SPON ADR,3:1,Trimestral,Energía
+SAB,SAFILO GROUP SPA,1:1,Irregular,Consumo
+SAP,SALESFORCE.COM INC,14:1,Trimestral,Tecnología
+SBUX,STARBUCKS CORP,7:1,Trimestral,Consumo
+SCHW,CHARLES SCHWAB CORP,2:1,Trimestral,Finanzas
+SNA,SNAKE RIVER VALLEY FOODS,1:1,Irregular,Consumo
+SO,SOUTHERN COMPANY,4:1,Trimestral,Energía
+SPG,SIMON PROPERTY GROUP INC,6:1,Trimestral,Servicios
+SPOT,SPOTIFY TECHNOLOGY SA,20:1,Trimestral,Servicios
+SRE,SEMPRA ENERGY,1:1,Trimestral,Energía
+STLA,STELLANTIS NV,1:1,Trimestral,Automotriz
+T,TELSTRA CORPORATION LTD,1:1,Irregular,Telecomunicaciones
+TFC,REGIONS FINANCIAL CORP,1:1,Trimestral,Finanzas
+TGT,TARGET CORP,5:1,Trimestral,Consumo
+TWTR,Twitter Inc,12:1,Irregular,Servicios
+TXN,TEXAS INSTRUMENTS INC,10:1,Trimestral,Tecnología
+UAL,UNITED AIRLINES HOLDINGS INC,2:1,Trimestral,Transporte
+UPS,UNITED PARCEL SERVICE INC,6:1,Trimestral,Transporte
+USB,US BANCORP,2:1,Trimestral,Finanzas
+UTX,UNITED TECHNOLOGIES CORP,4:1,Trimestral,Industria
+V,VISA INC,10:1,Trimestral,Finanzas
+VZ,VERIZON COMMUNICATIONS INC,2:1,Trimestral,Telecomunicaciones
+WBA,WALGREENS BOOTS ALLIANCE INC,4:1,Trimestral,Consumo
+WFC,WELLS FARGO & CO,2:1,Trimestral,Finanzas
+WMT,WALMART INC,4:1,Trimestral,Consumo
+WRB,WR BERKLEY CORP,1:1,Trimestral,Finanzas
+XOM,EXXON MOBIL CORP,3:1,Trimestral,Energía
+XRX,XEROX HOLDINGS CORP,1:1,Trimestral,Servicios
+YUM,YUM BRANDS INC,4:1,Trimestral,Consumo
+ZBH,ZIMMER BIOMET HOLDINGS INC,1:1,Trimestral,Salud
+ZM,ZOOM VIDEO COMMUNICATIONS INC,10:1,Trimestral,Servicios

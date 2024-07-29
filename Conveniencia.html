@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Leer CSV desde URL</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <input id="input" type="text">
+  <button id="boton">Buscar</button>
+
+  <h1 id="Ticker"></h1>
+  <h6 id="ratio"></h6>
+
+  <script>
+    
+    const csvUrl = 'InformacionCedears.csv'; // Asegúrate de que la URL sea correcta
+    let input = document.getElementById("input");
+    let boton = document.getElementById("boton");
+    let Ticker = document.getElementById("Ticker");
+    let Ratio = document.getElementById("ratio");
+
+    boton.addEventListener("click", async function() {
+  
+      let { tickers, ratios } = await CargarListas(csvUrl);
+      let AccionIntroducida = input.value;
+      ImprimirDato(AccionIntroducida, tickers, ratios);
+
+    });
+
+    function ImprimirDato(AccionIntroducida,tickers,ratios){
+      for(let i=0;i<tickers.length;i++){
+        if(tickers[i]==AccionIntroducida.toUpperCase()){
+          Ticker.innerHTML=tickers[i]
+          Ratio.innerHTML=ratios[i]
+        }
+      }
+    }
+
+    // Función para cargar y procesar el CSV
+    function CargarListas(csvUrl) {
+      return new Promise((resolve, reject) => {
+        fetch(csvUrl)
+          .then(response => response.text())
+          .then(data => {
+            Papa.parse(data, {
+              header: true,
+              complete: function(results) {
+                let tickers = [];
+                let ratios = [];
+                results.data.forEach(row => {
+                  tickers.push(row.TICKER);
+                  ratios.push(row.RATIO);
+                });
+                resolve({ tickers, ratios });
+              },
+            });
+          })
+      });
+    }
+  </script>
+</body>
+</html>
