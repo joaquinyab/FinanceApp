@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let Output = document.getElementById("Output")
 
+    let PrecioDolar = document.getElementById("PrecioDolar")
+
+
+    DolarApi()
+
+
     boton.addEventListener("click", async function() {
   
       let { tickers, ratios } = await CargarListas(csvUrl);
@@ -36,8 +42,18 @@ document.addEventListener("DOMContentLoaded",function(){
       }
     }
 
+    function DolarApi(){
+      fetch("https://dolarapi.com/v1/dolares/contadoconliqui")
+      .then(response => response.json())
+      .then(data => {
+              // Obtener el valor de venta del dólar blue y convertirlo a número
+          let DolarExposicion = (parseFloat(data.venta)).toFixed(2);
+          PrecioDolar.innerHTML = "DOLAR CCL en directo(1 dia): $"+DolarExposicion+"usd"
+      })
+    }
 
-    function CalcularCCL(Ratio){
+
+    function CalcularCCL(Ratio,TickerSeleccionado){
 
           let RatioAccion = Strip(Ratio)
 
@@ -51,15 +67,15 @@ document.addEventListener("DOMContentLoaded",function(){
                   let ventaDolar = (parseFloat(data.venta)).toFixed(3);
                   
                   let Resultado =parseFloat((InputPesos*RatioAccion)/InputUSD)
-                  console.log(Resultado)
+                  Ticker.innerText = "el CCL de "+TickerSeleccionado+" Es de $"+Resultado+"usd"
                   if(Resultado <= ventaDolar){
-                    Output.innerText = "Comprar la accion ES conveniente"
+                    Output.innerText = "El CCL de la accion esta SUBVALORADO"
                     Output.style.color="green"
                     Output.style.fontWeight="bolder"
                     
                   }
                   else{
-                    Output.innerText = "Comprar la accion NO ES conveniente"
+                    Output.innerText = "El CCL de la accion esta SOBREVALORADO"
                     Output.style.color="red"
                     Output.style.fontWeight="bolder"
 
@@ -77,8 +93,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
       for(let i=0;i<tickers.length;i++){
         if(tickers[i]==AccionIntroducida.toUpperCase()){
-          Ticker.innerHTML=tickers[i]
-          CalcularCCL(ratios[i])
+          
+          CalcularCCL(ratios[i],tickers[i])
           
         }
       }
