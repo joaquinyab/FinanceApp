@@ -62,13 +62,15 @@ body {
 h1 {
     font-size: 24px;
     color: #043353;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .input-group {
     display: flex;
-    justify-content: center;
+    
     align-items: center;
+    flex-direction: column;
+    
     margin-bottom: 20px;
 }
 
@@ -112,3 +114,19 @@ p {
     font-size: 18px;
     color: #043353;
 }
+input{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #D3DDE6;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    width: 70%;
+    margin-right: 10px;
+    color: #043353;
+}
+
+h3{
+    margin-top: 5%;
+}
+
+

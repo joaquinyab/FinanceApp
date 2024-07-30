@@ -2,64 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Leer CSV desde URL</title>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <script src="convenciencia.js"></script>
+  <link rel="stylesheet" href="stylesAcciones.css">
+
 </head>
 <body>
 
-  <input id="input" type="text">
-  <button id="boton">Buscar</button>
-
-  <h1 id="Ticker"></h1>
-  <h6 id="ratio"></h6>
-
-  <script>
-    
-    const csvUrl = 'InformacionCedears.csv'; // Asegúrate de que la URL sea correcta
-    let input = document.getElementById("input");
-    let boton = document.getElementById("boton");
-    let Ticker = document.getElementById("Ticker");
-    let Ratio = document.getElementById("ratio");
-
-    boton.addEventListener("click", async function() {
   
-      let { tickers, ratios } = await CargarListas(csvUrl);
-      let AccionIntroducida = input.value;
-      ImprimirDato(AccionIntroducida, tickers, ratios);
+    <div class="menu">
+      <a href="Acciones.html">Acciones</a>
+      <a href="index.html">Mi Cartera</a>
+      <a href="Conveniencia.html">Calculadora CCL</a>
+  </div>
 
-    });
+  <div class="container">
 
-    function ImprimirDato(AccionIntroducida,tickers,ratios){
-      for(let i=0;i<tickers.length;i++){
-        if(tickers[i]==AccionIntroducida.toUpperCase()){
-          Ticker.innerHTML=tickers[i]
-          Ratio.innerHTML=ratios[i]
-        }
-      }
-    }
+      <div class="content">
+          <h1>Calcula el CCL de un cedear</h1>
+          <div class="input-group">
+            <input id="inputAccion" type="text" placeholder="Ticker">
+            <input id="inputPesos" type="text" placeholder="Precio cedear">
+            <input id="inputPrecioUsd" type="text" placeholder="Precio Accion usd">
+            <button id="Buscar">Buscar</button>
+            <h3 id="Output"></h3>
+          </div>
+          <div class="result">
+            <h2 id="Ticker"></h2>
+            <p id="ratio"></p>
+          </div>
+      </div>
+  </div>
 
-    // Función para cargar y procesar el CSV
-    function CargarListas(csvUrl) {
-      return new Promise((resolve, reject) => {
-        fetch(csvUrl)
-          .then(response => response.text())
-          .then(data => {
-            Papa.parse(data, {
-              header: true,
-              complete: function(results) {
-                let tickers = [];
-                let ratios = [];
-                results.data.forEach(row => {
-                  tickers.push(row.TICKER);
-                  ratios.push(row.RATIO);
-                });
-                resolve({ tickers, ratios });
-              },
-            });
-          })
-      });
-    }
-  </script>
+    
+    
+
+
+
 </body>
 </html>
