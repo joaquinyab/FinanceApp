@@ -44,6 +44,8 @@ body {
 .container {
     flex: 1;
     display: flex;
+    width: 20vw;
+    
     justify-content: center;
     align-items: center;
     margin-left: 250px; /* Espacio para el menú */
@@ -55,9 +57,21 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 100%;
-    max-width: 600px;
+    width: 70%;
+    max-width: 450px;
     border: 1px solid #D3DDE6;
+}
+
+.containerCCL{
+    flex: 1;
+    display: flex;
+    width: 20vw;
+    margin-top: 1%;
+    
+    justify-content: center;
+    align-items: center;
+    margin-right: 9%; /* Espacio para el menú */
+
 }
 
 h1 {
@@ -72,7 +86,7 @@ h1 {
     align-items: center;
     flex-direction: column;
     
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #AccionInput {
@@ -132,9 +146,10 @@ h3{
 }
 
 .ContenedorDolarCCl{
-    top: 5%;
+    
     position: absolute;
-    left: 75%;
+    margin-top: 4%;
+    left: 73%;
 }
 
 

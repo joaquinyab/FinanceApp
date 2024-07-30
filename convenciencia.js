@@ -48,7 +48,14 @@ document.addEventListener("DOMContentLoaded",function(){
       .then(data => {
               // Obtener el valor de venta del dólar blue y convertirlo a número
           let DolarExposicion = (parseFloat(data.venta)).toFixed(2);
-          PrecioDolar.innerHTML = "DOLAR CCL en directo: $"+DolarExposicion+"usd"
+          PrecioDolar.innerHTML = "DOLAR CCL en directo: " 
+          PrecioDolar.style.color="grey"
+
+          let Exposicion = document.createElement("h3")
+          Exposicion.style.color="white"
+          Exposicion.innerHTML=" $"+DolarExposicion+" ARS"
+
+          PrecioDolar.appendChild(Exposicion)
       })
     }
 
@@ -66,8 +73,8 @@ document.addEventListener("DOMContentLoaded",function(){
                       // Obtener el valor de venta del dólar blue y convertirlo a número
                   let ventaDolar = (parseFloat(data.venta)).toFixed(3);
                   
-                  let Resultado =parseFloat((InputPesos*RatioAccion)/InputUSD)
-                  Ticker.innerText = "El CCL de "+TickerSeleccionado+" Es de $"+Resultado+"usd"
+                  let Resultado =(parseFloat((InputPesos*RatioAccion)/InputUSD)).toFixed(2)
+                  Ticker.innerText = "El CCL de "+TickerSeleccionado+" es de $"+Resultado+" ARS"
                   if(Resultado <= ventaDolar){
                     Output.innerText = "El CCL de la accion esta SUBVALORADO"
                     Output.style.color="green"
