@@ -143,5 +143,25 @@ h3{
     
     font-weight: bolder;
 }
+p{
+    font-size: 11px;
+    font-weight: bolder;
+    color: rgb(139, 139, 139);
+
+}
+
+h6{
+    font-weight: bolder;
+    color: rgb(85, 85, 85);
+    font-size: 11px;
+
+}
+
+#PrecioAccion{
+    font-weight: bolder;
+    color: rgb(85, 85, 85);
+    font-size: 20px;
+
+}
 
 
