@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let ListaUsuario = document.getElementById('ListaAccionesUsuario');
     let TotalCartera = document.getElementById('TotalCartera')
 
+
+
+
+
     const csvUrl = 'InformacionCedears.csv';
     
+
+
 
     let PrecioDolar = document.getElementById('Dolar')
 
@@ -31,8 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     DatosLista(ListaJava)
     GraficoTorta(ListaJava)
     GraficoBarra(ListaJava)
-    GraficoDona(ListaJava)
-    
+    GraficoDona()
 
     //una vez que el usuario apreta el boton se valida analiza que la info en Accion, Precio y Cantidad sean correctas,si lo son, se agrega a la cartera de acciones
     Boton.addEventListener('click', async function() {
@@ -41,11 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let Precio = PrecioAccionIntroducida.value;
         let Cantidad = CantidadIntroducida.value
 
-        let {tickersArchivo,industriasArchivo} = await CargarListas(csvUrl)
+
+
+
+        let { tickersArchivo, industriasArchivo } = await CargarListas(csvUrl);
         
-
-
-
         
         //////////////////////////// Validar ambos campos
         if (!Validarinputs(Accion, 'Accion') || !Validarinputs(Precio, 'Precio') || !Validarinputs(Cantidad,'Cantidad')){
@@ -53,9 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } 
         else{
+
+        
             MensajeErrorAccion.innerHTML=''
+
+            if(TickerEnArchivo){
+                
+            }
+
             if(ListaJava.length==0){
-                    AgregarAccion(Accion,Precio,Cantidad,industriasArchivo,tickersArchivo)
+                    AgregarAccion(Accion,Precio,Cantidad)
             }
             else{
                 if(AccionSeEncuentra(ListaJava,Accion)){
@@ -103,14 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 else{
-                    AgregarAccion(Accion,Precio,Cantidad,industriasArchivo,tickersArchivo)
+                    AgregarAccion(Accion,Precio,Cantidad)
                 }
                 }
             }
         TotalCartera.innerHTML= Calculartotal(ListaJava)
         ApiDolar()
-        console.log(ListaJava)
-
 
 
 
@@ -173,8 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-
-
     function GraficoBarra(ListaJava){
         let GraficoBarra = document.getElementById('Grafico2')
         let [Tickers,CantidadCadaUno,Precios]=DatosLista(ListaJava)
@@ -233,87 +241,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-    function GraficoDona(ListaJava){
-        let GraficoDona = document.getElementById('Grafico3')
-        let [Tickers,CantidadCadaUno,Precios]=DatosLista(ListaJava)
-        new Chart(GraficoTorta, {
-            type: 'doughnut',
-            data: {
-              labels: Tickers,
-              datasets: [{
-                //label: 'Cantidad',
-                data: CantidadCadaUno,
-                borderWidth: 3,
-                backgroundColor: [
-                    'rgba(40, 2, 101, 0.2)',  // 20% opacity
-                    'rgba(40, 2, 101, 0.4)',  // 40% opacity
-                    'rgba(40, 2, 101, 0.6)',  // 60% opacity
-                    'rgba(40, 2, 101, 0.8)',  // 80% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 0.5)'   // 50% opacity
-                  ],
-                  borderColor: [
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)'     // 100% opacity
-                  ],
-              }]
-              
-            },
-            options: {
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                    ticks: {
-                      color: '#ffffff'  // Color de los números en el eje Y
-                    }
-                  },
-                  x: {
-                    ticks: {
-                      color: '#ffffff'  // Color de los números en el eje X
-                    }
-                  }
-                },
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: '#ffffff'  // Color de las etiquetas de la leyenda
-                    }
-                  }
-                }
-              }
-            });
-    }
-
-
-
-
-
-
-
-
-
     function DatosLista(ListaJava){
         Tickers =[]
         CantidadCadaUno=[]
         Precios =[]
-
-
-        Industrias = []
 
         for(let i=0;i<ListaJava.length;i++){
             if(!Tickers.includes(ListaJava[i].Accion)){
                 Tickers.push(ListaJava[i].Accion)
                 CantidadCadaUno.push(parseFloat(ListaJava[i].Cantidad))
                 Precios.push(parseFloat(ListaJava[i].Precio))
-                Industrias.push(parseFloat(ListaJava[i].Industria))
             }
         }
-        return [Tickers,CantidadCadaUno,Precios,Industrias]
+        return [Tickers,CantidadCadaUno,Precios]
         
     }
 
@@ -405,54 +345,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 
+    function AgregarAccion(Accion,Precio,Cantidad){
+        MensajeErrorAccion.innerHTML = '';
+        let ItemListaJava = {'Accion': Accion.toUpperCase(), 'Precio': Precio,'Cantidad':Cantidad};
+        ListaJava.push(ItemListaJava);
 
-
-
-
-
-
-
-    function AgregarAccion(Accion,Precio,Cantidad,industriasArchivo,tickersArchivo){
-
-        if(tickerSeEncuentraEnArchivo(tickersArchivo,Accion)){
-            console.log("Se encuentra")
-            
-            let IndustriaDelTicker= industriaTicker(industriasArchivo,tickersArchivo,Accion)
-            console.log(IndustriaDelTicker)
-            MensajeErrorAccion.innerHTML = '';
-            let ItemListaJava = {'Accion': Accion.toUpperCase(), 'Precio': Precio,'Cantidad':Cantidad,"Industria":IndustriaDelTicker};
-            ListaJava.push(ItemListaJava);
-    
-            MostrarLista(ListaUsuario,ListaJava)
-            AccionIntroducida.value = '';
-            PrecioAccionIntroducida.value = '';
-            CantidadIntroducida.value='';
-
-        }
-
-        else{
-            console.log("NO Se encuentra")
-            MensajeErrorAccion.innerHTML = '';
-            let ItemListaJava = {'Accion': Accion.toUpperCase(), 'Precio': Precio,'Cantidad':Cantidad,"Industria":""};
-            ListaJava.push(ItemListaJava);
-    
-            MostrarLista(ListaUsuario,ListaJava)
-            AccionIntroducida.value = '';
-            PrecioAccionIntroducida.value = '';
-            CantidadIntroducida.value='';
-
-        }
+        MostrarLista(ListaUsuario,ListaJava)
+        AccionIntroducida.value = '';
+        PrecioAccionIntroducida.value = '';
+        CantidadIntroducida.value='';
     }
-
-
-
-
-
-
-
-
-
-
 
     // Esta funcion agrega cada nuevo elemento que pone el usuario al apretar el boton agregar (ya habiendo verificado los datos)
     function MostrarLista(elementoLista, lista) {
@@ -509,7 +411,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-
     function CargarListas(csvUrl) {
         return new Promise((resolve, reject) => {
           fetch(csvUrl)
@@ -529,25 +430,14 @@ document.addEventListener('DOMContentLoaded', function() {
               });
             })
         });
-      }
-
-    function tickerSeEncuentraEnArchivo(tickersArchivo,TickerIntroducido){
-        if(tickersArchivo.includes(TickerIntroducido.toUpperCase())){
-            
-            return true
-        }
-        
     }
 
 
-    function industriaTicker(industriasArchivo, tickersArchivo, TickerIntroducido) {
-        let index = tickersArchivo.indexOf(TickerIntroducido.toUpperCase());
-        if (index !== -1) {
-            return industriasArchivo[index] || "";  // Retorna la industria si existe, o cadena vacía si no
+    function TickerEnArchivo(tickerEnArchivo,TickerIntroducido){
+        
+        if(tickerEnArchivo.includes(TickerIntroducido)){
+            return True
         }
-        return "";  // Retorna cadena vacía si el ticker no se encuentra
     }
 
 });
-
-

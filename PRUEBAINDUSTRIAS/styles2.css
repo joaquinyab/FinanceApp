@@ -1,0 +1,294 @@
+/*
+
+1) #043353
+2) 18A4E0
+3)FAF8F0
+4)D3DDE6
+
+*/
+
+.FondoInicioSesion{
+    margin: 0;
+    background: #D3DDE6;
+    background:linear-gradient( #0b8fc8,#032942);
+
+    
+}
+
+
+.menu {
+    width: 15%;
+    background-color: #011e32;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed; /* Fijo a la izquierda */
+    top: 0;
+    bottom: 0;
+}
+
+.menu a {
+    color: #FAF8F0;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #18A4E0;
+    color: #043353;
+}
+
+.menu a.active {
+    background-color: #18A4E0;
+    color: #043353;
+}
+
+body{
+    margin: 0;
+    height: auto;
+    background: #0e719b;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+}
+
+
+.IniciarSesion{
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10%;
+    box-shadow:0 5px 15px rgb(0, 0, 0);
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    margin:0 auto;
+    background: white;
+}
+
+#GoogleInicioSesion{
+    padding: 10px 20px;
+    background:linear-gradient(#032942,#0e719b);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+
+}
+
+.IniciarSesion h1{
+    color: #0E0B16;
+}
+
+
+.ContenedorInputs{
+    margin-top: 5%;
+    background: #D3DDE6;
+    height: 75vh;
+    border-radius: 3%;
+    width: 35vw;
+    border-color: black;
+    border-style:solid;
+    margin-left: 30%;
+
+}
+
+.ContenedorInputs div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.ContenedorInputs div input{
+
+    height: 7vh;
+    width: 20vw;
+
+}
+
+#Agregar{
+    margin-left: 16%;
+    margin-bottom: 10%;
+    padding: 10px 20px;
+    background-color: #043353;/*#043353*/
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#Agregar:hover {
+    background-color: #063f65;
+  }
+
+#Agregar:active {
+    background-color: #063251;
+  }
+
+
+
+li{
+    color: #D3DDE6;
+    list-style: none;
+    border-bottom-style:solid;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+li::selection{
+    background: none;
+    color: inherit;
+
+}
+
+
+.ContenedorPrincipal{
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    background:linear-gradient(#032942,#0e719b);
+    z-index: 90;
+}
+
+#MensajeErrorAccion{
+    margin-left: 16%;
+    color: brown;
+
+}
+
+.CarteraUsuario{
+    margin-top:3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15%;
+    z-index: 20;
+    width: 40vw;
+}
+
+.ContenedorCartera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ContenedorCartera h1{
+    color: #FAF8F0;
+}
+
+.Menu{
+    
+    background: linear-gradient(#031d2f,#022c48);
+    border: 10px 10px rgb(0, 0, 0);
+    border-radius: 0 10px 10px 0;
+    box-shadow: 3px 5px black;
+    width: 15vw;
+    height: 100vh;
+    position: fixed;
+    
+}
+
+.Contenedor1{
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 25vw;
+}
+
+.MainSecundario{
+    display: flex;
+    
+    flex-direction: column;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.MainSecundario .ContenedorEstadistica1{
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr;
+}
+
+.MainSecundario .ContenedorEstadistica2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 75vw;
+}
+
+#ContenedorPieChart{
+
+    width: 37vw;
+    height: 50vh;
+}
+#ContenedorBarChart{
+    width: 37vw;
+    height: 50vh;
+
+}
+
+
+.TotalCartera{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.TotalCartera p{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.ContDolar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.ContDolar p{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+h2{
+    font-weight: bolder;
+    color: rgb(175, 175, 175);
+}
+
+p{
+    font-weight: bold;
+    color: white;
+
+}
+p:hover{
+    font-weight: bolder;
+    font-size: 22px;
+    transition: 1s;
+
+}
+
+h6{
+    font-weight: bolder;
+    color: rgb(85, 85, 85);
+    font-size: 13px;
+}
