@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded",function(){
                       // Obtener el valor de venta del dólar blue y convertirlo a número
                   let ventaDolar = (parseFloat(data.venta)).toFixed(3);
                   
-                  let Resultado =(parseFloat((InputPesos*RatioAccion)/InputUSD)).toFixed(2)
-                  Ticker.innerText = "El CCL de "+TickerSeleccionado+" es de $"+Resultado+" ARS"
+                  let Resultado =(parseFloat((InputPesos*RatioAccion)/InputUSD))
+                  Ticker.innerText = "El CCL de "+TickerSeleccionado+" es de $"+Resultado.toFixed(2)+" ARS"
                   if(Resultado <= ventaDolar){
                     Output.innerText = "El CCL de la accion esta SUBVALORADO"
                     Output.style.color="green"
