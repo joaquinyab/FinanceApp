@@ -292,3 +292,9 @@ h6{
     color: rgb(85, 85, 85);
     font-size: 13px;
 }
+
+#ContenedorDonutChart{
+    margin-top: 100px;
+    width: 37vw;
+    height: 50vh;
+}

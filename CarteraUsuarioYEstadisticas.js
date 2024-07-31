@@ -234,87 +234,85 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    function GraficoDona(ListaJava){
-        let GraficoDona = document.getElementById('Grafico3')
-        let [Tickers,CantidadCadaUno,Precios]=DatosLista(ListaJava)
-        new Chart(GraficoTorta, {
-            type: 'doughnut',
-            data: {
-              labels: Tickers,
-              datasets: [{
-                //label: 'Cantidad',
-                data: CantidadCadaUno,
-                borderWidth: 3,
-                backgroundColor: [
-                    'rgba(40, 2, 101, 0.2)',  // 20% opacity
-                    'rgba(40, 2, 101, 0.4)',  // 40% opacity
-                    'rgba(40, 2, 101, 0.6)',  // 60% opacity
-                    'rgba(40, 2, 101, 0.8)',  // 80% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 0.5)'   // 50% opacity
-                  ],
-                  borderColor: [
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)',    // 100% opacity
-                    'rgba(40, 2, 101, 1)'     // 100% opacity
-                  ],
-              }]
-              
-            },
-            options: {
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                    ticks: {
-                      color: '#ffffff'  // Color de los números en el eje Y
-                    }
-                  },
-                  x: {
-                    ticks: {
-                      color: '#ffffff'  // Color de los números en el eje X
-                    }
-                  }
-                },
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: '#ffffff'  // Color de las etiquetas de la leyenda
-                    }
-                  }
-                }
-              }
-            });
-    }
 
 
-
-
-
-
-
-
-
-    function DatosLista(ListaJava){
-        Tickers =[]
-        CantidadCadaUno=[]
-        Precios =[]
-
-
-        Industrias = []
-
-        for(let i=0;i<ListaJava.length;i++){
-            if(!Tickers.includes(ListaJava[i].Accion)){
-                Tickers.push(ListaJava[i].Accion)
-                CantidadCadaUno.push(parseFloat(ListaJava[i].Cantidad))
-                Precios.push(parseFloat(ListaJava[i].Precio))
-                Industrias.push(parseFloat(ListaJava[i].Industria))
+    function contarOcurrencias(array) {
+        let ocurrencias = {};
+        for (let i = 0; i < array.length; i++) {
+            let elemento = array[i];
+            if (ocurrencias[elemento]) {
+                ocurrencias[elemento]++;
+            } else {
+                ocurrencias[elemento] = 1;
             }
         }
-        return [Tickers,CantidadCadaUno,Precios,Industrias]
-        
+        return ocurrencias;
+    }
+
+    function convertirALista(ocurrencias) {
+        return Object.values(ocurrencias);
+    }
+
+    function DatosLista(ListaJava) {
+        let Tickers = [];
+        let CantidadCadaUno = [];
+        let Precios = [];
+        let Industrias = [];
+
+        for (let i = 0; i < ListaJava.length; i++) {
+            if (!Tickers.includes(ListaJava[i].Accion)) {
+                Tickers.push(ListaJava[i].Accion);
+                CantidadCadaUno.push(parseFloat(ListaJava[i].Cantidad));
+                Precios.push(parseFloat(ListaJava[i].Precio));
+                Industrias.push(ListaJava[i].Industria);
+            }
+        }
+        return [Tickers, CantidadCadaUno, Precios, Industrias];
+    }
+
+    function GraficoDona(ListaJava) {
+        let GraficoDona = document.getElementById('Grafico3');
+        let [Tickers, CantidadCadaUno, Precios, Industrias] = DatosLista(ListaJava);
+        let CantidadIndustrias = contarOcurrencias(Industrias);
+        let listaIndustrias = convertirALista(CantidadIndustrias);
+        let etiquetas = Object.keys(CantidadIndustrias);
+
+        new Chart(GraficoDona, {
+            type: 'doughnut',
+            data: {
+                labels: etiquetas,
+                datasets: [{
+                    data: listaIndustrias,
+                    borderWidth: 3,
+                    backgroundColor: [
+                        'rgba(40, 2, 101, 0.2)',
+                        'rgba(40, 2, 101, 0.4)',
+                        'rgba(40, 2, 101, 0.6)',
+                        'rgba(40, 2, 101, 0.8)',
+                        'rgba(40, 2, 101, 1)',
+                        'rgba(40, 2, 101, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(40, 2, 101, 1)',
+                        'rgba(40, 2, 101, 1)',
+                        'rgba(40, 2, 101, 1)',
+                        'rgba(40, 2, 101, 1)',
+                        'rgba(40, 2, 101, 1)',
+                        'rgba(40, 2, 101, 1)'
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'  // Color de las etiquetas de la leyenda
+                        }
+                    }
+                }
+            }
+        });
     }
 
 
