@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             MensajeErrorAccion.innerHTML=''
             if(ListaJava.length==0){
                     AgregarAccion(Accion,Precio,Cantidad,industriasArchivo,tickersArchivo)
+                    alert("F5 para actualizar los graficos por cada cedear que agregues")
             }
             else{
                 if(AccionSeEncuentra(ListaJava,Accion)){
