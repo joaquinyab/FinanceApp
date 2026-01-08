@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
   <script src="convenciencia.js"></script>
-  <link rel="stylesheet" href="stylesAcciones.css">
+  <link rel="stylesheet" href="stylesAcciones.css" />
 
+  <title>Calculadora CCL</title>
 </head>
+
 <body>
+  <aside class="menu" aria-label="Menú principal">
+    <a href="Acciones.html">Acciones</a>
+    <a href="index.html">Mi Cartera</a>
+    <a href="Conveniencia.html">Calculadora CCL</a>
+  </aside>
 
-  
-    <div class="menu">
-      <a href="Acciones.html">Acciones</a>
-      <a href="index.html">Mi Cartera</a>
-      <a href="Conveniencia.html">Calculadora CCL</a>
+  <div class="top-right">
+    <div id="PrecioDolar" style="font-weight:1000;"></div>
+    <div style="opacity:.85; margin-top:6px;">
+      El CCL se actualiza cada 24hs. La calculadora usa ese dato diario.
+    </div>
   </div>
-  <div class="ContenedorDolarCCl">
-    <h2 id="PrecioDolar"></h2>
-    <p> El precio dolar ccl se actualiza cada 24hs.<p>La calculdaora toma los datos de esta informacion diaria.</p></p>
-  </div>
 
-  <div class="containerCCL">
-    
-      <div class="content">
+  <div class="page">
+    <div class="content">
+      <h1>Calcula el CCL de un cedear</h1>
+      <p class="small">Tip: completá ticker + precio ARS + precio USD.</p>
 
-          <h1>Calcula el CCL de un cedear</h1>
-          <h6>La informacion de los cedears esta actualizada hasta el dia 29/07/2024 1:10am</h6>
-          
-          <div class="input-group">
-            <input id="inputAccion" type="text" placeholder="Ticker">
-            <input id="inputPesos" type="text" placeholder="Precio cedear">
-            <input id="inputPrecioUsd" type="text" placeholder="Precio Accion usd">
-            <button id="Buscar">Buscar</button>
-            
-          </div>
-          <div class="result">
-            <h3 id="Ticker"></h3>
-            <h4 id="Output"></h4>
-          </div>
+      <div class="input-group">
+        <input id="inputAccion" type="text" placeholder="Ticker (ej: AAPL)" autocomplete="off" />
+        <input id="inputPesos" type="text" placeholder="Precio cedear (ARS)" inputmode="decimal" />
+        <input id="inputPrecioUsd" type="text" placeholder="Precio acción (USD)" inputmode="decimal" />
+        <button id="Buscar" type="button">Buscar</button>
       </div>
+
+      <div class="result" aria-live="polite">
+        <h3 id="Ticker" style="margin:0;"></h3>
+        <h4 id="Output" style="margin:10px 0 0;"></h4>
+      </div>
+    </div>
   </div>
 
-    
-    
-
-
-
+  <script>
+    // Active link automático
+    (function () {
+      const here = (location.pathname.split("/").pop() || "").toLowerCase();
+      document.querySelectorAll(".menu a").forEach(a => {
+        const href = (a.getAttribute("href") || "").toLowerCase();
+        if (href === here) a.classList.add("active");
+      });
+    })();
+  </script>
 </body>
 </html>
