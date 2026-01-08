@@ -1,35 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesAcciones.css">
-    <script type="module" src="ValorAcciones.js"></script>
-    <title>Stock Data</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="stylesAcciones.css" />
+  <script type="module" src="ValorAcciones.js"></script>
+  <title>Acciones</title>
 </head>
-<body>
-    <div class="menu">
-        <a href="Acciones.html">Acciones</a>
-        <a href="index.html">Mi Cartera</a>
-        <a href="Conveniencia.html">Calculadora CCL</a>
-    </div>
 
-    <div class="container">
-        <div class="content">
-            <h1>Consulta de Acciones</h1>
-            <p>25 consultas diarias</p>
-            <div class="input-group">
-                <input id="AccionInput" type="text" placeholder="Ingresa el símbolo de la acción">
-                <button id="Buscar">Buscar</button>
-            </div>
-            <div class="result">
-                <h2 id="NombreAccion"></h2>
-                <p id="PrecioAccion"></p>
-            </div>
-        </div>
+<body>
+  <aside class="menu" aria-label="Menú principal">
+    <a href="Acciones.html">Acciones</a>
+    <a href="index.html">Mi Cartera</a>
+    <a href="Conveniencia.html">Calculadora CCL</a>
+  </aside>
+
+  <div class="page">
+    <div class="content">
+      <h1>Consulta de Acciones</h1>
+      <p class="small">Límite típico: 25 consultas diarias (Alpha Vantage).</p>
+
+      <div class="input-group">
+        <input id="AccionInput" type="text" placeholder="Ej: AAPL, MSFT, TSLA" autocomplete="off" />
+        <button id="Buscar" type="button">Buscar</button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="badge" id="NombreAccion">Listo para buscar</div>
+        <p id="PrecioAccion" style="margin:10px 0 0; font-size:18px; font-weight:1000;"></p>
+        <div class="status" id="Estado"></div>
+      </div>
     </div>
+  </div>
+
+  <script>
+    // Active link automático
+    (function () {
+      const here = (location.pathname.split("/").pop() || "").toLowerCase();
+      document.querySelectorAll(".menu a").forEach(a => {
+        const href = (a.getAttribute("href") || "").toLowerCase();
+        if (href === here) a.classList.add("active");
+      });
+    })();
+  </script>
 </body>
 </html>
-
-
