@@ -1,104 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
-    
-
-
+<html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi cartera</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainPage</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="CarteraUsuarioYEstadisticas.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <!-- Fix global de Chart.js + menú -->
+  <script defer>
+    // Menú móvil (abre/cierra)
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("menuBtn");
+      const drawer = document.getElementById("drawer");
+      const overlay = document.getElementById("overlay");
+
+      const close = () => {
+        drawer.classList.remove("open");
+        overlay.classList.remove("show");
+        btn.setAttribute("aria-expanded", "false");
+      };
+      const open = () => {
+        drawer.classList.add("open");
+        overlay.classList.add("show");
+        btn.setAttribute("aria-expanded", "true");
+      };
+
+      btn?.addEventListener("click", () => {
+        drawer.classList.contains("open") ? close() : open();
+      });
+      overlay?.addEventListener("click", close);
+
+      // Active link
+      const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+      document.querySelectorAll(".nav a").forEach(a => {
+        if ((a.getAttribute("href") || "").toLowerCase() === here) a.classList.add("active");
+      });
+    });
+
+    // Defaults Chart.js (se aplican ANTES de que tu JS cree los charts)
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!window.Chart) return;
+
+      Chart.defaults.responsive = true;
+      Chart.defaults.maintainAspectRatio = false;  // <- clave para que no deforme
+      Chart.defaults.animation = false;
+
+      // Tipografía + tamaños más chicos (evita labels gigantes)
+      Chart.defaults.font.family = "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+      Chart.defaults.font.size = 12;
+
+      // Leyenda abajo (más “app” y menos choque con el gráfico)
+      Chart.defaults.plugins.legend.position = "bottom";
+      Chart.defaults.plugins.legend.labels.boxWidth = 12;
+      Chart.defaults.plugins.legend.labels.boxHeight = 12;
+      Chart.defaults.plugins.legend.labels.padding = 12;
+
+      // Tooltips más limpios
+      Chart.defaults.plugins.tooltip.padding = 10;
+    });
+  </script>
+
+  <!-- TU lógica (la dejo igual) -->
+  <script src="CarteraUsuarioYEstadisticas.js" defer></script>
+
+
+
+
+
+  <script src="ui-cartera.js" defer></script>
 </head>
 
 <body>
+  <!-- Topbar móvil -->
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn" aria-label="Abrir menú" aria-expanded="false">
+      ☰
+    </button>
+    <div class="brand">Cedears Lab</div>
+    <div class="topbar-spacer"></div>
+  </header>
 
-    <div class="ContenedorPrincipal">
+  <!-- Overlay móvil -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
 
-        <div class="menu">
-            <a href="Acciones.html">Acciones</a>
-            <a href="index.html">Mi cartera</a>
-            <a href="Conveniencia.html">Calculadora CCL</a>
-        </div>
-
-        <div class="ContenedorInputs">
-            <div class="ContenedorAccion">
-                <h3>Simbolo del cedear</h3>
-                <input id="NombreAccion" type="text" placeholder="Ticker">
-            </div>
-            <div class="ContenedorPrecioAccion">
-                <h3>Precio de cada cedear</h3>
-                <input id="PrecioAccion" type="text" placeholder="Precio">
-            </div>
-            <div class="ContenedorCantidadAccion">
-                <h3>Cantidad de la accion</h3>
-                <input id="CantidadAcciones" type="text" placeholder="cantidad">
-            </div>
-            <p id="MensajeErrorAccion"></p>
-            
-            <button id="Agregar">Agregar</button>
-            <br>
-            <h6>*si queres eliminar una accion de la cartera pone su ticker y en la seccion PRECIO o CANTIDAD el numero 0</h6>
-            
-        </div>
-        <div class="CarteraUsuario">
-           
-            <div class="ContenedorCartera">
-                <div class="Contenedor1">
-                <h1>Tu cartera</h1>
-            </div>
-                <ul id="ListaAccionesUsuario"></ul>
-            </div>
-        </div>
-
-
-
-
-
+  <!-- Sidebar / Drawer -->
+  <aside id="drawer" class="sidebar" aria-label="Menú principal">
+    <div class="sidebar-head">
+      <div class="brand">Cedears Lab</div>
+      <button class="icon-btn close-btn" aria-label="Cerrar menú" onclick="document.getElementById('overlay').click()">✕</button>
     </div>
 
-    <br>
-    <br>
+    <nav class="nav">
+      <a href="Acciones.html">Acciones</a>
+      <a href="index.html">Mi cartera</a>
+      <a href="Conveniencia.html">Calculadora CCL</a>
+    </nav>
+  </aside>
 
-    <div class="MainSecundario">
+  <main class="page">
+    <section class="hero">
+      <h1>Mi cartera</h1>
+      <p>Agregá tus cedears y mirá totales + gráficos (responsive).</p>
+    </section>
 
-        <div class="ContenedorEstadistica1">
-
-            <div class="TotalCartera">
-                <h2>Total en pesos:  $ </h2>
-                <p id="TotalCartera"></p>
-            </div>
-
-            <div class="ContDolar">
-                <h2 id="Dolar">Total en dolares:  $ </h2>
-                <p id="TotalUSDCartera"></p>
-            </div>
+    <section class="layout">
+      <div class="card">
+        <div class="card-header">
+          <h2>Agregar / actualizar posición</h2>
         </div>
 
-        <div class="ContenedorEstadistica2">
-
-            <div id="ContenedorPieChart">
-                <h2>Cantidad </h2>
-                <canvas id="Grafico1"></canvas>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="field">
+              <label for="NombreAccion">Ticker</label>
+              <input id="NombreAccion" type="text" placeholder="Ej: AAPL" autocomplete="off" />
             </div>
 
-            <div id="ContenedorBarChart">
-                <h2>Precios</h2>
-                <canvas id="Grafico2"></canvas>
+            <div class="field">
+              <label for="PrecioAccion">Precio (ARS)</label>
+              <input id="PrecioAccion" type="text" inputmode="decimal" placeholder="Ej: 12500" />
             </div>
 
-            <div id="ContenedorDonutChart">
-                <h2>Industria</h2>
-                <canvas id="Grafico3"></canvas>
+            <div class="field">
+              <label for="CantidadAcciones">Cantidad</label>
+              <input id="CantidadAcciones" type="text" inputmode="numeric" placeholder="Ej: 3" />
             </div>
+
+            <p id="MensajeErrorAccion" class="error" aria-live="polite"></p>
+
+            <div class="actions">
+              <button id="Agregar" class="btn" type="button">Agregar</button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
+      <div class="card">
+        <div class="card-header">
+          <h2>Tu cartera</h2>
+        </div>
+        <div class="card-body">
+          <ul id="ListaAccionesUsuario" class="list" aria-label="Lista de acciones del usuario"></ul>
+        </div>
+      </div>
+    </section>
 
+    <section class="stats">
+      <div class="card stat">
+        <h3>Total en pesos</h3>
+        <p class="value">$ <span id="TotalCartera"></span></p>
+      </div>
+
+      <div class="card stat">
+        <h3>Total en dólares</h3>
+        <p class="value">US$ <span id="TotalUSDCartera"></span></p>
+      </div>
+    </section>
+
+    <!-- IMPORTANTÍSIMO: contenedores con altura controlada -->
+    <section class="charts">
+      <div class="card">
+        <div class="card-header"><h2>Cantidad</h2></div>
+        <div class="chart-wrap">
+          <canvas id="Grafico1"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h2>Precios</h2></div>
+        <div class="chart-wrap">
+          <canvas id="Grafico2"></canvas>
+        </div>
+      </div>
+
+      <div class="card full">
+        <div class="card-header"><h2>Industria</h2></div>
+        <div class="chart-wrap">
+          <canvas id="Grafico3"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
-
-
 </html>
